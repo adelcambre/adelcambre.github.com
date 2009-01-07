@@ -1,0 +1,121 @@
+---
+layout: post
+title: git reset In depth
+---
+
+This is the second part of a series of articles on Git.  This post is primarily going to focus on the "@git reset@":http://www.kernel.org/pub/software/scm/git/docs/git-reset.html command and how to track multiple remote subversion branches.  
+
+First, a bit of background on @git reset@.  In my opinion it is one of the cooler git commands that I use regularly, it's function is a bit odd, there is no equivalent in subversion to compare to.  What @git reset@ does at a very high level is move a tag in the git graph that makes up the revision history.  
+
+So lets take the following sequence of commands as an example.  
+
+<pre>
+git init
+touch README
+git add README
+git commit -a -m "initial import"
+git checkout -b new_branch
+vi README
+git commit -a -m "modified README"
+git checkout master
+vi README
+git commit -a -m "updated README"
+touch blah
+git add blah
+git commit -a -m "added blah"
+</pre>
+
+So we create a git repository, make a commit, branch from the commit.  Make a change in the branch, and make two changes back in master.  The git directed graph now looks like this:
+
+<a href="http://fido.cat.pdx.edu/git.png" border="0"><img src="http://fido.cat.pdx.edu/git.png" width="622"></a>
+
+You can see that there are two branches. Right now we are in the master branch so the current HEAD tag points to the @31281c1@ commit.  (This is important, @git reset@ moves the current HEAD.)
+
+<pre>
+adelcambre@hiro:/tmp/blah% cat .git/refs/heads/master
+31281c194e505bf000f1d67c07b76255ac9370e9
+adelcambre@hiro:/tmp/blah% cat .git/refs/heads/new_branch
+0b6f5c586c257820f2ce94981f71a860107184ed
+</pre>
+
+So now, lets say we want to make master follow the new_branch branch.  (This is a bit contrived, bear with me.)  So you use @git reset --hard new_branch@
+
+<pre>
+adelcambre@hiro:/tmp/blah% git reset --hard new_branch
+HEAD is now at 0b6f5c5... modified README
+</pre>
+
+So the current HEAD in the master branch is pointing at the same commit as the new_branch branch.  Let's make a commit in each branch and see what happens.  
+
+<pre>
+vi README
+git commit -a -m "changed README"
+git checkout new_branch
+touch new_file
+git add new_file
+git commit -a -m "added new file"
+</pre>
+
+Which gets us this graph:
+
+<a href="http://fido.cat.pdx.edu/git2.png" border="0"><img src="http://fido.cat.pdx.edu/git2.png" width="622"></a>
+
+So, you basically just moved the master branch to be a branch of the new_branch branch.  But what happened to those commits against the old master.  Well, they aren't reachable, so would get garbage collected if you did a repack (more on that in a later edition).  But for now, they are still there, just not reachable from a tag.  We happen to know the commit-id of the old master branch, but if you didn't, you could use @git lost-found@.
+
+<pre>
+adelcambre@hiro:/tmp/blah% git lost-found
+[31281c194e505bf000f1d67c07b76255ac9370e9] added blah
+</pre>
+
+So it found the old master branch! Let's merge our current master back into the new_branch, and move master back to the old master.  
+
+<pre>
+git checkout new_branch
+git merge master
+git checkout master
+git reset --hard 31281c1
+</pre>
+
+Which results in the graph looking like:
+
+<a href="http://fido.cat.pdx.edu/git3.png" border="0"><img src="http://fido.cat.pdx.edu/git3.png" width="622"></a>
+
+So you can see that we recovered the unreachable commit, and merged back the changes we made on the master branch while it followed the new_branch.  
+
+Now, there are no unreachable commits, @git lost-found@ doesn't return anything, and we are good to go.  
+
+h1. git reset options
+
+There are three main options to use with @git reset@: @--hard@, @--soft@ and @--mixed@.  These affect what get's reset in addition to the HEAD pointer when you reset.  
+
+First, @--hard@ resets everything.  Your current directory would be exactly as it would if you had been following that branch all along.  The working directory and the index are changed to that commit.  This is the version that I use most often.  This is what we used in the above examples.  It just says make the current HEAD and working directory exactly like commit "x".  
+
+Next, the complete opposite, --soft, does not reset the working tree nor the index.  It *only* moves the HEAD pointer.  This leaves your current state with any changes different than the commit you are switching to in place in your directory, and "staged" for committing.  I use this for only every once in a while, and mostly for correcting a commit message.  If you make a commit locally but haven't pushed the commit to the git server or subversion server, you can reset to the previous commit, and recommit with a good commit message. This would look something like:
+
+<pre>
+touch test
+git add test
+git commit -m "bad commit"
+git reset --soft HEAD^
+git commit -m "good commit"
+</pre>
+
+So, because @git reset --soft@ doesn't reset the index nor the working tree, you can just re-commit without having to add anything.  
+
+Finally, @--mixed@ resets the index, but not the working tree.  So the changes are all still there, but are "unstaged" and would need to be @git add@'ed or @git commit -a@.   I use this sometimes if I committed more than I meant to with @git commit -a@, I can back out the commit with @git reset --mixed@, add the things that I want to commit and just commit those.  
+
+The place that I really use @git reset@ a fair amount is with remote branches.  If I have a branch that I want to track a specific remote subversion branch, I can simply @git reset --hard svn_branch_name@ and then @git svn@ does the right thing.  I have seen issues where for some reason the git master branch ended up following a subversion tag rather than trunk.  A quick @git reset --hard trunk@ cleaned everything up.  
+
+I really started liking this command once I realized what was happening.  You really need to be aware of the nature of git's directed graph to take full advantage of @git reset@, but once you do, you are really able to exploit git quite a lot further. 
+
+This is part of a series on git, other articles in the series are:
+* "Git SVN":http://andy.delcambre.com/2008/3/4/git-svn-workflow
+* git rebase
+* git log
+* git stash
+* git merge
+* git mergetool
+
+Do you have any git reset success stories? Horror stories? Lost work? Saved work?  Let me know in the comments. 
+
+*Update:* Changed the terminology to only refer to the current branch as "HEAD", per comment from Bob. 

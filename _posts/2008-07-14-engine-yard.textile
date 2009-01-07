@@ -1,0 +1,14 @@
+---
+layout: post
+title: Engine Yard
+---
+
+!>http://engineyard.com/images/logo_ey.png!:http://engineyard.com/
+
+Lots of big changes in my life recently.   The biggest news is that I accepted a new position at Engine Yard.  My first day was last Monday and this has been a very full and extremely fun week.  I am really enjoying the technical side of things but the culture at this company is really what does it for me.  I have hung out with or grabbed a beer with "Dan Peterson":http://danp.net/, "Yehuda Katz":http://yehudakatz.com/, Leah Silber, "Corey Donohoe":http://atmos.org/, "Jayson Vantuyl":http://souja.net/, "Ed Muller":http://icanhazdowntime.org/, Lance Walley, Tom Mornini, Michelle Champlin, Nick French, Ben De Jesus and many more I am sure I am forgetting (21st Amendment will do that to you).  
+
+As for my actual job at Engine Yard, I am still ramping up, but I am going to be working on internal applications using Ruby, Merb and Datamapper.  I am really excited to be using Merb and Datamapper.  It is so amazing to work down hall from the guys that invented these frameworks, a truly invaluable resource. 
+
+Finally, it was just announced today that Engine Yard has closed their Series B venture capital funding. This round was for $15 million and led by New Enterprise Associates, Inc. (NEA), with participation from Amazon.com and current investor Benchmark Capital.  You can see the press release "here":http://blog.engineyard.com/2008/7/14/engine-yard-closes-15-million-in-series-b-financing for more information. 
+
+These are very exciting time for both myself and Engine Yard.  I am looking forward to finding a permanent place to live down in the bay area and the coming adventures at Engine Yard. 

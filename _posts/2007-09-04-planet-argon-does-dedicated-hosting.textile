@@ -1,0 +1,18 @@
+---
+layout: post
+title: PLANET ARGON does Dedicated Hosting!
+---
+
+!>http://farm2.static.flickr.com/1118/1325009910_c9e13bad3e_m_d.jpg!
+
+For some time now PLANET ARGON has been providing dedicated hosting service for clients who ask.  We really enjoy this work and have decided to advertise it a bit more publicly. 
+
+What does this mean?  
+
+This means you provide a server and we provide a place to put it, somewhere to plug it in and a fast internet connection.  
+
+This is not just a colocation service though.  
+
+We also provide many services for your hosting needs.  We will load the boxes for you and keep them running and patched.  We can also provide support for anything up to multiple virtualized instances on your server with complex deployment layouts which we can help configure and deploy.  
+
+If this is something you or your company might be interested, please contact us at contact@planetargon.com, +1 503 445 2457, or +1 877 55 ARGON[toll free]

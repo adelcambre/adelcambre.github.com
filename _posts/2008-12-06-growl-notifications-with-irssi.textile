@@ -1,0 +1,30 @@
+---
+layout: post
+title: Growl Notifications with Irssi
+---
+
+!http://img.skitch.com/20081206-8tpe5hw4hukgeipsdgkhjpijrw.jpg!
+
+I am a big fan of using "Screen":http://www.gnu.org/software/screen/ + "Irssi":http://irssi.org/ on the terminal for all of my irc needs.  I have a setup I have been tweaking for years and I am not planning on switching any time soon.  The one thing that I have always missed was the ability to have notifications on my local computer.  There is the option to send growl notifications over tcp, but that would require having a public ip address for my laptop.  This is a non-starter at work and a pain at home.  
+
+A friend and I came up with a technique that works pretty well.  It uses the fnotify irssi plugin, growl with the command line tools installed, and some ssh tricks.  
+
+First, you will need to install the fnotify plugin for irssi.  Download it "here":http://www.leemhuis.info/files/fnotify/fnotify  and put it in your @~/.irssi/scripts@ directory and call it @fnotify.pl@.  Then, to load the script into irssi, you need to first load perl support, then load the script itself:
+
+<script src="http://gist.github.com/32935.js"></script>
+
+This little script writes out to a file every time somebody /msg's you or says your name in a channel (or anything else you have a /hilight set for).  Now that we have this info in a file we can read the file and setup the notification.  
+
+Next, we need to setup growl.  If you don't already have Growl installed, you can get it from "here":http://growl.info/, just download the dmg and run the installer inside.  This will install the growl preference pane where you can control the functionality. Second, you will need to install the growlnotify command line script.  This is located inside the dmg under @extras/growlnotify@.  You should cd to that directory (@/Volumes/Growl-1.1.4/Extras/growlnotify/@), and run @bash install.sh@.  This will put the script into /usr/local/bin so you will need to add that to your path if you haven't done so already.  
+
+Finally, we need a script to grab the notifications from the server and call growlnotify for you.  You can see the script below, it ssh's to the server and tail's the fnotify file, piping it back to the client computer and running a loop to do the actual notification.  I put this script into my ~/bin folder, but you can put it wherever you like.  Just remember where you put it for the next step.  
+
+<script src="http://gist.github.com/32580.js"></script>
+
+Finally, using the LocalCommand option in your ssh_config, you can have the notification script automatically run whenever you ssh to your screen server.  I also have a few other tweaks in the host section to make my life a bit easier.  The important part is the LocalCommand option and the PermitLocalCommand.  Note that I also pass -o PermitLocalCommand=no in the ssh command in the script above to prevent a fork bomb.  
+
+<script src="http://gist.github.com/32582.js"></script>
+
+There are a few issues with this technique. The main one that I may try to fix soon is that the command doesn't die when you close the ssh connection to the screen server.  So if you disconnect and reconnect, you have two copies of the script running (and double notifications as well). I tend to open my laptop and connect to the screen server, then leave it running until I close my laptop again so it isn't a huge deal for me.  
+
+I hope you found this useful, I am really enjoying having desktop notifications for irc.  Do you have any cool screen + irssi tricks?  I am always looking for new tricks for my old tools. 

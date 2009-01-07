@@ -1,0 +1,88 @@
+---
+layout: post
+title: Masochistic Connection Proxy with Observers
+---
+
+On a recent project here at "PLANET ARGON":http://planetargon.com/ we needed to use ActiveRecord with a master and slave database setup. We started out using "ActsAsReadonlyable":http://revolutiononrails.blogspot.com/2007/04/plugin-release-actsasreadonlyable.html but quickly ran into some nasty performance issues.  After asking around a bit, the code ninjas over at "ActiveReload":http://activereload.net/ mentioned that they had a plugin for splitting the ActiveRecord reads and writes to separate databases called "Masochism":http://ar-code.svn.engineyard.com/plugins/masochism/README 
+
+This worked much better than ActsAsReadonlyable from a performance perspective but there was an issue with some of our observers.  Specifically observers that had conditionals which were contigent on the update that triggered the observer.  Take the following (somewhat contrived) example:
+
+{% highlight ruby %}
+class Beehive < ActiveRecord::Base
+  has_many :bees
+end
+
+class Bee < ActiveRecord::Base
+  belongs_to :beehive
+end
+
+class Bee < ActiveRecord::Observer
+  def after_destroy(object)
+    object.beehive.destroy if object.beehive.beehive.empty?
+  end
+end
+{% endhighlight %}
+
+So, destroy the behive when the last bee in the beehive is destroyed.  The problem is that the beehive will only be destroyed if all of the bees have been destroyed but there is a race condition when the last bee is destroyed.  The database replication has to push the DELETE down to the slave database before the observer gets run (which basically never happens).  
+
+The first solution was to simply wrap the observer in a with_master call (with_master is a method on the connection object in masochism to perform any database queries against the master database).  It looked something like this:
+
+{% highlight ruby %}
+class Bee < ActiveRecord::Observer
+  def after_destroy(object)
+    Comment.connection.with_master do
+      object.beehive.destroy if object.beehive.bees.empty?
+    end
+  end
+end
+{% endhighlight %}
+
+This solved the problem perfectly, the conditional now happens against the master database and will pass at all the right times.  But it is a bit ugly to have the with_master call in the observer, the observer shouldn't care whether it is using masochism or not.  Also, we are only using masochism in production, so this breaks on our development copies (the connection only has the with_master method in production).  
+
+So after a bit of thinking, and a bit of hacking, I just added the with_master call to ActiveRecord::Observer itself when the plugin is loaded.  Here is the patch I used:
+
+{% highlight diff %}
+Index: vendor/plugins/masochism/lib/active_reload/connection_proxy.rb
+===================================================================
+--- vendor/plugins/masochism/lib/active_reload/connection_proxy.rb	(revision 2039)
++++ vendor/plugins/masochism/lib/active_reload/connection_proxy.rb	(working copy)
+@@ -20,6 +20,10 @@
+     def self.setup_for(master, slave = nil)
+       slave ||= ActiveRecord::Base
+       slave.send :include, ActiveRecordConnectionMethods
++      # extend observer to always use the master database
++      # observers only get triggered on writes, so shouldn't be a performance hit
++      # removes a race condition if you are using conditionals in the observer
++      ActiveRecord::Observer.send :include, ActiveReload::ObserverExtensions
+       ActiveRecord::Base.active_connections[slave.name] = new(master, slave)
+     end
+ 
+@@ -60,4 +64,21 @@
+       connection.with_master { reload_without_master }
+     end
+   end
++  
++  module ObserverExtensions
++    def self.included(base)
++      base.alias_method_chain :update, :masterdb
++    end
++    
++    # Send observed_method(object) if the method exists.
++    def update_with_masterdb(observed_method, object) #:nodoc:
++      if object.class.connection.respond_to?(:with_master)
++        object.class.connection.with_master do
++          update_without_masterdb(observed_method, object)
++        end
++      else
++        update_without_masterdb(observed_method, object)
++      end
++    end
++  end
+ end
+{% endhighlight %}
+
+There shouldn't be much performance hit as observers should only be run during a database write (i.e. hitting the master database) anyway.
+
+I am planning on sending it over to Rick Olson and maybe it will be included in masochism itself soon.
+
+Are you using masochism? Are there other issues with observers? Is there a better way to do this (one thing I thought of is to just run observers in a transaction which masochism runs against the master_db as well)? Let me know in the comments.

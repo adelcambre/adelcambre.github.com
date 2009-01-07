@@ -1,0 +1,55 @@
+---
+layout: post
+title: Automated Time Tracking using git
+---
+
+My git workflow usually involves creating a branch for the feature I am working on (or just a bugfix branch) making commits there until the feature is done, then merging back into my master branch and pushing to our subversion server.  I started thinking about the fact that if I could simply keep track of all of the time that I spent in the branch it would be a fairly good approximation of the time spent working on the feature.  I did successfully implement this and it works fairly well with a few small exceptions.  
+
+First, I am using a post-checkout hook in git which is not implemented until version 1.5.4 which is currently at rc4.  Luckily the git-checkout script is just a shell script so it was trivial to backport support for the hook.  Second, I am using zsh to implement some of the features, and I am not sure if similar things could be accomplished with bash or tcsh.  
+
+This technique has three main parts: recording when you enter and leave a branch, calculating the total time spent in the branch, and a system to automatically switch you out of a branch after a few minutes of inactivity. 
+
+First the time logging feature.  This is the part that uses the post-checkout hook to function.  Basically, every time you do a checkout of a branch, the post-checkout script records a timestamp in a log file for the branch you are entering and the branch you are leaving.  After a while you build up a log of timestamps in the file.  It looks something like this (I standardised again the ISO8601 date format).  The post-checkout script is available "here":http://fido.cat.pdx.edu/blog_files/post-checkout.sh
+
+<pre>
+in 2008-01-25T12:36:36-08:00
+out 2008-01-25T12:42:43-08:00
+in 2008-01-25T13:20:41-08:00
+out 2008-01-25T13:29:57-08:00
+in 2008-01-25T15:13:47-08:00
+out 2008-01-25T15:15:08-08:00
+in 2008-01-25T16:56:03-08:00
+out 2008-01-25T16:58:09-08:00
+</pre>
+
+Now that you have this time log of the time you spent in the branch, you can calculate how long the feature took you to implement.  I used a commit-msg hook to do this.  This adds the amount of time the commit took you directly to the commit message.  I created this as a script in /usr/local/bin called git-time so you can also run it manually, (the hook is just a symlink).  The script also reset the time log file (with just one entry for the current time).  The script is a available "here":http://fido.cat.pdx.edu/blog_files/commit-msg.sh
+
+When you commit it adds the time to the commit message:
+
+<pre>
+commit 7e739f01377806be8b93ef181fc99c54058bcd89
+Author: Andy Delcambre <andy.delcambre@planetargon.com>
+Date:   Wed Feb 6 14:17:57 2008 -0800
+
+    test commit
+    This commit took 1.35 hours
+</pre>
+
+The last piece ensures that you don't simply keep the branch checked out all the time and that you switch back to master when you aren't actually working in the branch.  It uses the zsh feature of having a shell TMOUT (which triggers a SIGALRM after the number of seconds specified elapsed), then trapping the alarm and switching to the master branch if you are in a git repository and not already in the master branch.
+
+Here is what you should add to your .zshrc:
+
+{% highlight bash %}
+TRAPALRM () {
+	# Used to do time tracking for git commits
+	if [[ -d .git ]]; then
+		if [[ `git branch | grep '*' | awk '{print $2}'` != 'master' ]]; then
+			git co master
+		fi
+	fi
+}
+
+export TMOUT=300
+{% endhighlight %}
+
+It seems to work fairly well, but there are a few issues.  First, the time log can get screwed up: you can put your laptop to sleep while still in a branch.  This results in having a greatly exagerated time in the commit message.  I always check with git log to see if the time estimate is approximately accurate, and just reset and recommit (with a greatly under-exaggerated time).  There is also always the extra few minutes of work that get done after doing the actual commit (resolving the todo item, merging and committing to the subversion server, etc) so I usually add a bit.  But overall it works fairly well for me.  Are the other tools that you use to help you with tracking your time? 

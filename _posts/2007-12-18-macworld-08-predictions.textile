@@ -1,0 +1,32 @@
+---
+layout: post
+title: Macworld '08 Predictions
+---
+
+I was chatting with some friends today about Macworld 2008, and we discussed what we were expecting to see.  I thought I would put my predictions here for posterity's sake.  
+
+So here we go, in no particular order:
+
+* iPhone SDK
+<b>Mentioned, but not released</b>
+* No new iPhone hardware mentioned (new hardware with 3g and gps announced at wwdc, released in October)
+<b>Correct (no new hardware, software update though)</b>
+* No new ipods
+<b>Correct</b>
+* Refresh to the whole portable line, speed bumps, led backlit displays
+<b>Wrong (not yet anyway)</b>
+* Ultra portable macbook, 13" screen, 3 lbs, SSD (flash disk drive), led backlit display, no optical drive, base $1600, top of the line $2000
+<b>Pretty damn accurate, although way off on the top end price. </b>
+* Mac Pro refesh, maybe all new look
+<b>Refresh a week before, same look</b>
+* Appletv refresh
+<b>Correct</b>
+
+What do you think? I am drooling over the ultra portable, really hoping to see that one.  Also very curious what the iPhone sdk will be like.  
+
+<b>Updated with results, these predictions were made on December 18th</b>
+
+What did I miss?
+
+* iTunes movie rentals
+* Time Capsule

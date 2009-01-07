@@ -1,0 +1,64 @@
+---
+layout: post
+title: Migration Conflicts
+---
+
+h1. The problem
+
+Here at "PLANET ARGON":http://www.planetargon.com/ we use "Subversion":http://subversion.tigris.org/ for managing our rails projects.  There is often concurrent development from different developers on different aspects of a project.  It seems that whenever we are adding a lot of new features, we inevitably end up with multiple migrations with the same number.  The developer who is the second to commit ends up having to fix the migrations so they can be checked in.  
+
+My basic strategy for resolving the conflict is to rollback to a version before the conflict, move my migrations past all of the new migrations and then migrate up to the newest version.  The issue with this system is that if you have multiple migrations with the same number, they won't run at all, so you can't revert. 
+
+h1. The Solution
+
+Lets assume that you are starting a new project which has a blog component.  Another developer creates the post model and checks it in, you start working on a user model and create the migration (and run it).  In the meantime, the other developer checks in the tag model with a migration.  So what you have now is:
+
+<pre>
+001_create_posts.rb
+002_create_tags.rb
+002_create_users.rb
+</pre>
+
+The posts and users tables are created in your database, the tags table is not.  The tags migration is checked into subversion and users isn't yet.  Basically you want to revert to version 1, change users to version 3 then re-migrate.  First, to revert to version 1, you need to perform the down operation of the users migration.  This can be done with script/console.  You require the migration file, then run the migrate method on the class.
+
+<pre>
+Loading development environment.
+>> require 'db/migrate/002_create_users.rb'
+=> ["CreateUsers"]
+>> CreateUsers.migrate(:down)
+== CreateUsers: reverting =====================================================
+-- drop_table(:users)
+   -> 0.0854s
+== CreateUsers: reverted (0.0856s) ============================================
+=> []
+</pre>
+
+Running the migration directly also doesn't change the schema info table so you will need to use a bit of sql to update that as well.  
+
+@UPDATE schema_info SET version = 1@
+
+Now simply move the create_users migration to version 3, 
+
+@mv db/migrate/002_create_users.rb db/migrate/003_create_users.rb@ 
+
+and run @rake db:migrate@ and you should be happy again.  
+
+h1.  Solutions for Avoiding the Conflicts in the First Place
+
+There are basically three options that I have seen for avoiding migration conflicts.  
+
+h3. "Independent Migrations":http://blog.caboo.se/articles/2007/3/27/independent-migrations-plugin
+
+This looks to be a cool plugin that allows you to define your migrations as "Independent".  You subclass the migrations from @ActiveRecord::IndependentMigration@ rather than the normal @ActiveRecord::Migration@.  What this does is if you have two migrations subclassed from IndependentMigration with the same version number, they will both run.  This assumes that any dependent migrations will still be numbered differently.  It is already available as a plugin at: @svn://caboo.se/plugins/court3nay/independent_migrations@
+
+h3.  "Timestamped Migrations":http://blog.teksol.info/articles/2006/12/13/timestamped-migrations-status
+
+This patch (it isn't a plugin yet) simply replaces the migration version numbers with timestamps, therefore making it much less likely that there will be conflicts.  Rather than storing a version number in the schema info table, it stores which migrations have been run. This seems to be a well thought out solution that could work well.  I am interested to see this when it becomes a plugin.
+
+h3.  "Auto Migrations":http://errtheblog.com/post/12447 (aka Drop Dead Gorgeous Migrations)
+
+This plugin from "Err":http://errtheblog.com/ does away with migrations entirely and makes use of the much maligned db/schema.rb file.  You simply change that file to reflect how you want your database to look and run @rake db:auto:migrate@.  The plugin compares the file and your database and applies changes to update your database.  This means you can use normal merging/conflict resolution tools you are already used to for changing schema.rb.  
+
+This plugin is really new and doesn't yet support every possible change you could make, it doesn't yet support type changes and indexes were recently added.  It also has some limitations, if you change the name of a column there is no good way for it to detect that.  So you end up dropping the old column and creating the new one.  
+
+Are there any other solutions that we might not be aware of now?

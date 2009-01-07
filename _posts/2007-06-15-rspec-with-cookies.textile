@@ -1,0 +1,31 @@
+---
+layout: post
+title: Rspec with Cookies
+---
+
+Rails cookies are weird.  In the controller you interact with them like they are a hash, but in fact it is not nearly that simple.  The "rdocs":cookies gives some hints to the fact that weird things are going on but it wasn't enough for me to figure it out.  The hash abstraction works pretty well when you are setting the cookies, but when trying to test them things become more complicated.  
+
+Lets take this simple example of setting an auth_token cookie.  
+
+{% highlight ruby %}
+cookies[ :auth_token ] = { :value => user.token , :expires => user.expires }
+{% endhighlight %}
+
+This might happen in the login method of an authentication controller.  So now you want to test that the cookie is actually getting set.  So you think, ok this is a hash, I can just do something like:
+
+{% highlight ruby %}
+cookies[ :auth_token ].should_not be_nil
+{% endhighlight %}
+
+This in fact doesn't work but, (and here is the nasty part), there is still a cookies object defined. What happens as far as I can tell (and correct me if I am wrong) is that once the post request is made, the cookies object is gone.  Then you can access the cookies that were set using the response object.  But the @response.cookies@ object isn't the same as the cookies object you were dealing with earlier.  It is the cookies as they are seen from the browser.   Therefore it is no longer a ruby hash, but an array of values, and the expiration time no longer exists (that is internal to the browser).   It is also no longer keyed by symbols, but is now keyed by strings.  So the correct way to spec that cookies are set looks like:
+
+{% highlight ruby %}
+response.cookies[ "auth_token" ].should_not be_nil
+{% endhighlight %}
+
+But, because of the "cookies alias":cookies_test alias in the ActionController test suite, you can also use the response.cookies object as just cookies. 
+
+Hopefully this will save you the hour I just spent beating my head against this.
+
+[cookies]http://api.rubyonrails.org/classes/ActionController/Cookies.html
+[cookies_test]http://api.rubyonrails.org/classes/ActionController/TestProcess.html#M000071

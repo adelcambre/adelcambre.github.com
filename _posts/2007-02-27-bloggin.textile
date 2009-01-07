@@ -1,0 +1,12 @@
+---
+layout: post
+title: Bloggin'
+---
+
+Well I got my uncle (the delcambre.com master) to give me control of andy.delcambre.com and I installed mephisto YAY!
+
+Haven't really done the bloggin thing before but I thought i would give it a try.  
+
+I am currently finishing up my BS in Computer Science from Portland State University and I am looking for a job.  I current work at PSU doing system administration for the Maseeh College of Engineering and Computer Science.  It is a pretty good job (except the pay...) but I have decided I want to give development a try.  
+
+Anyway, keep your eye here for random stuff that interests me.  I will try to stay away from being a link aggregator and stick to actually writing stuff.  

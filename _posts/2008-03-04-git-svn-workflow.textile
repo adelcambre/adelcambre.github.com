@@ -1,0 +1,98 @@
+---
+layout: post
+title: Git SVN Workflow
+---
+
+I know, I know, this is blog post number one million about Git and git-svn.  This is primarily for my co-workers who are wanting to switch to git for our SVN based projects like I have.  (If I get them with git-svn, next we can start hosting with git directly, Muhahaha!)
+
+First, a bit of background.  "Git":http://git.or.cz/ was written by "Linus Torvalds":http://en.wikipedia.org/wiki/Linus_Torvalds specifically for use by the linux kernel team.  He had very specific ideas about how the version control system should work, and none of the offerings at that time satisfied his needs.  Git is designed to be distributed (every clone is a full fledged git repository) and very very fast.  It is also designed to be very easy not only to branch, but also to merge.  
+
+Disclaimer: This is not intended to be the "correct" way to use git + svn, only the way that I use it.  That said, here we go.
+
+First, we assume that you have a subversion repository at @http://example.com/svn/my_proj@.  You will need to create the git repo setup to pull from this repo.  
+
+<pre>
+git svn init -s http://example.com/svn/my_proj
+</pre>
+
+This will initialize the git repo for pulling from svn.  The @-s@ indicates that you have a "standard" setup for your subversion repository.  I.e. @trunk/@ @branches/@ and @tags/@.  This command will not yet import anything from subversion.
+
+<pre>
+git svn fetch
+</pre>
+
+This command will fetch all revisions from subversion that you have not yet received.  The first time you run this could take quite a while.  There are options to only fetch some of the revisions, but I prefer to fetch the whole history the first time.  This way blame and log show the whole thing.
+
+Now you will have both the whole revision history for trunk, but also all of the branches on the svn server.  You can see all of the branches with
+
+<pre>
+git branch -a
+</pre>
+
+This will show all branches, including the remote branches.  
+
+Now that you have the entire subversion history stored locally, it can be useful to repack the repository.  Right now, each revision has it's own file, this command will pack those into bigger "pack" files. This will make the repository smaller, but also with many many fewer files
+
+<pre>
+git repack -d
+</pre>
+
+Next you will want to do some actual work on the repository.  It is not recommended to make changes in your master branch, so lets make a branch for the new feature.
+
+<pre>
+git checkout -b new_feature
+</pre>
+
+This will make a new branch (the @-b@) and switch to it (checkout).  Once you have your new branch you make a bunch of changes and add a new file or two.  You need to add any new files so git knows to track them.  You can do this with:
+
+<pre>
+git add path/to/new_file
+</pre>
+
+Now, once you are happy with this new feature and have it tested. You can commit it to git.  This is one place where git diverges from subversion. Files you have changed aren't automatically staged for committing.  So right now if you try to commit, you will commit the file that you added in the above command, but nothing you changed (adding a file stages it).  So you have two options at this point, you can manually stage each file you want to commit, you will want to do it this way if you don't want to commit all the changes you have made. That will look something like
+
+<pre>
+git add path/to/edited_file
+git add another/edited/file
+git commit -m "commit message"
+</pre>
+
+If you want to commit all of the changes you have made, and you have added all of the new files, you can automatically commit all changes, no need to stage.  This is how I normally do things. That looks like:
+
+<pre>
+git commit -a -m "commit message"
+</pre>
+
+The @-a@ tells git to commit all staged and unstaged changes.  
+
+So now you have these commits in git but they have not been pushed to subversion yet.  You will need to get this commit into master first.  You need to checkout the master repo, then merge back with the new feature. 
+
+<pre>
+git checkout master
+git merge new_feature
+</pre>
+
+It is likely this merge will work without any conflicts, but if not you will need to fix the conflicts then commit. 
+
+Once you have the commit back in the master repo, you will need to resync the master branch to the svn repo to make sure you don't commit conflicts. 
+
+<pre>
+git svn rebase
+</pre>
+
+This will rebase the master branch to the subversion trunk.  Next, you need to push the commit to subversion. 
+
+<pre>
+git svn dcommit
+</pre>
+
+That's it!  That is the basic circle between an initial checkout back to a commit.  I will be going through the different git commands in the next few weeks to go over how they work in more detail.  Here are the things I am planning on covering:
+
+* "git reset":http://andy.delcambre.com/2008/3/12/git-reset-in-depth
+* git rebase
+* git log
+* git stash
+* git merge
+* git mergetool
+
+Did I miss anything major? Let me know how you use git with svn in the comments.  

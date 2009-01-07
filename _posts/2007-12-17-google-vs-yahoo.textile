@@ -1,0 +1,20 @@
+---
+layout: post
+title: Google vs. Yahoo
+---
+
+I have recently had to sign up for both a "Google":http://code.google.com/apis/maps/ and "Yahoo!":http://developer.yahoo.com/maps/ajax/index.html maps api key.  There is a world of difference between the two sign up processes.  First we have yahoo. 
+
+!http://myskitch.com/adelcambre/register_your_application_on_the_yahoo__developer_network-20071217-144042.jpg/preview.jpg!:http://myskitch.com/adelcambre/register_your_application_on_the_yahoo__developer_network-20071217-144042/
+ 
+There are *eight* required form fields.  Some of which I don't even necessarily have an answer for.  Product name? Description? I want to just play with some maps!  
+
+Then there is the authentication section, apparently connect to the non-authentication web services with the generic option,  is maps non-authenticated? Kinda hard to know.  And there is another question about access scopes which to the uninitiated seems to be asking the same thing as authentication.  Over all very confusing (and I consider myself to be fairly technical).  
+
+Now, compare to the Google Maps Api Key form.  
+
+!http://myskitch.com/adelcambre/sign_up_for_the_google_maps_api_-_google_maps_api_-_google_code-20071217-144302.jpg/preview.jpg!:http://myskitch.com/adelcambre/sign_up_for_the_google_maps_api_-_google_maps_api_-_google_code-20071217-144302.jpg
+
+We have two fields, and one is a checkbox agreeing to the terms of service.  Couldn't get any simpler.
+
+What is the lesson here? Only ask for as much information as you absolutely need to allow the user to start using your application.  If I wasn't using Yahoo! Maps for a client project, I would have given up and gone back to Google.  

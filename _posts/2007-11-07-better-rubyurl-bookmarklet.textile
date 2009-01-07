@@ -1,0 +1,24 @@
+---
+layout: post
+title: RubyURL Bookmarklet - Now with Google Maps Support
+---
+
+I use "RubyURL":http://rubyurl.com/ fairly extensively for linking to long urls.  It was written internally here at "PLANET ARGON":http://planetargon.com by "Chris Griffin":http://chriszgriffin.com/ and "Robby Russell":http://robbyonrails.com/.  
+
+The RubyURL bookmarklet is a god send, want to link somewhere that has a long url? Just click the RubyURL this link button and copy the address, the problem that I had is that it didn't work with google maps, which have extremely long urls and requires many steps to generate a RubyURL.  First you click, "link to this page", copy the text from the little popup, go to rubyurl.com, paste the text and get your RubyURL.  
+
+<div class="thumbnail"><a href="http://myskitch.com/adelcambre/dock-20071107-153539/"><img src="http://myskitch.com/adelcambre/dock-20071107-153539.jpg/preview.jpg" alt="Dock" /></a><br /><a style="font-family: Lucida Grande, Trebuchet, sans-serif, Helvetica, Arial; font-size: 10px; color: #808080" href="http://plasq.com/skitch">Uploaded with Skitch!</a></div>
+
+I figured that there must be a way to grab that link from the document itself on the Google Maps site.  I whipped out my Javascript book and got it working in short order.  
+
+The code looks like
+
+<pre>
+javascript:void(location.host=='maps.google.com'?location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(document.getElementById('link').href):location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(location.href))
+</pre>
+
+Which is ugly as it's a bookmarklet.  Drag this to your bookmark bar if you want to start using it: <a href="javascript:void(location.host=='maps.google.com'?location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(document.getElementById('link').href):location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(location.href))">RubyURL this Link</a>
+
+You don't even need to click the "Link to this page" link on google maps before using it, it grabs it right out of the document.  I will try to get this added to the RubyURL site as the official bookmarklet as well.  
+
+Are there other sites that don't work well with the bookmarklet? Let me know in the comments!

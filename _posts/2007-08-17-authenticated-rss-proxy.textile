@@ -1,0 +1,53 @@
+---
+layout: post
+title: Authenticated rss proxy
+---
+
+At "PLANET ARGON":http://www.planetargon.com/ we use "Basecamp":http://www.basecamphq.com/ for project tracking.  Basecamp offers rss feeds of any new posts either globally  or per project which is very handy for keeping track of things.  The problem is that the rss feeds use http authentication which many feed readers (especially web based ones) don't support.  As a "Google Reader":http://reader.google.com/ user, I was out of luck.  
+
+After suffering through using email as my notification system, I decided to write a quick script to convert parameters to the url into http authentication.  I initially considered doing this with cgi, but eventually decided to write a quick "mongrel":http://mongrel.rubyforge.org/ handler for the task.  It actually turned out to be a lot easier than I thought it would be.  
+
+Here is the code:
+
+{% highlight ruby %}
+require 'rubygems'
+require 'mongrel'
+require 'net/http'
+
+HOSTNAME='your basecamp url'
+
+class SimpleHandler < Mongrel::HttpHandler
+  def process(request, response)
+    params = {}
+    request.params["QUERY_STRING"].split('&').each do |param|
+      param = param.split('=')
+      params[param[0]] = param[1]
+    end
+    response.start(200) do |head,out|
+      head["Content-Type"] = "application/xml"
+      Net::HTTP.start(HOSTNAME) do |http|
+        req = Net::HTTP::Get.new(params["url"])
+        req.basic_auth params["user"], params["password"]
+        response = http.request(req)
+        out.write response.body
+      end
+    end
+  end
+end
+
+h = Mongrel::HttpServer.new("0.0.0.0", "9898")
+h.register("/feed", SimpleHandler.new)
+h.run.join
+{% endhighlight %}
+
+It works really well, just run the script and point your feed reader at:
+@http://hostname:9898/feed?user=<username>&password=<password>&url=<path of the rss feed>@
+
+for a normal global basecamp feed, it would look like:
+@http://hostname:9898/feed?user=andy.delcambre&password=mypassword&url=/feed/recent_items_rss@
+
+"Robby":http://robbyonrails.com has confirmed that this works with open id basecamp logins as well.  
+
+This could be easily used with any authenticated rss feed you wanted.  My goal was to make it general enough and easy enough for everyone at PLANET ARGON to use.  
+
+I had no idea it was so easy to add an http server to your script with mongrel.  Zed Shaw is the man.  

@@ -1,0 +1,22 @@
+---
+layout: post
+title: Dinner with Matz
+---
+
+Last Thursday (February 21, 2008), I attended a dinner sponsored by the "OTBC":http://www.opentechcenter.com/. The dinner was a chance for people in the open source community in Portland to meet a delegation of open source advocates from Shimane Prefecture in Japan, specifically Matsue.  
+
+Included in the delegation were professors from the university in Matsue, representatives from Hitachi and Sun Microsystems, and members of the open source community in Japan including the former head of the "PostgreSQL":http://www.postgresql.org/ user's group in Japan.  
+
+The highlight of the dinner was Yukihiro "Matz" Matsumoto, the creator of the "Ruby":http://ruby-lang.org/ programming language.  There were about 50 people in attendance at the dinner, but I was very lucky in that I was able to sit at the same table as Matz.  
+
+!http://farm3.static.flickr.com/2111/1850262566_fb4cf68fb6.jpg?v=0!:http://flickr.com/photos/strangecontext/1850262566/
+
+It was very cool to have such amazing access to Matz at this small dinner.  We had a good mix of people and backgrounds at our table.  Other than Matz and myself, there was Monty Williams from "Gemstone":http://www.gemstone.com/ and his wife, Ben Matasar from "DabbleDB":http://dabbledb.com/, "Audrey Eschright":http://dyepot-teapot.com/ a local community evangelist and member of "PDX.rb":http://pdxruby.org/, "Michael Bunsen":http://orderofr.net/michael/ another PDX.rb member and creator of "Urban Edibles":http://urbanedibles.org/, and "Anselm Hook":http://hook.org/ from "Meedan":http://meedan.org/.  
+
+This group allowed for some interesting discussions, we had Monty and Ben who are both smalltalk guys giving some insight into that side of the current sphere of programming.  This included some discussions of "Seaside":http://www.seaside.st/ the smalltalk web framework.  
+
+I had the chance to ask Matz some questions that I have been curious about for some time.  Primarily involving the seeming current major transition period for Ruby where we are going from one interpreter which Matz wrote himself, at least 4 or 5 different virtual machines (old MRI, new MRI["YARV":http://www.atdot.net/yarv/], "IronRuby":http://www.ironruby.net/, "jRuby":http://jruby.codehaus.org/, and "Rubinius":http://rubini.us/), most of which Matz hasn't worked on.  For the first time since Ruby was started, the mainline virtual machine was primarily not written by Matz.  It was very interesting to see how he feels about this transition.  
+
+Overall the evening was a ton of fun. Lots of excellent discussions, and some amazing access to the creator my favorite programming language on the planet.  
+
+Was anybody else there?  What was your experience like?  Also, if I forgot anybody who was sitting at our table, please post a comment.  

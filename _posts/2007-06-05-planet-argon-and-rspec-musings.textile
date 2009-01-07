@@ -1,0 +1,39 @@
+---
+layout: post
+title: Planet Argon and Rspec musings
+---
+
+Started work at "Planet Argon":http://planetargon.com today.  I have been chatting with them for about 6 weeks, and I am extremely excited to start working with them.  Today was pretty slow to start (as I expected), getting accounts going, getting mysql working properly on my laptop, getting subversion checkouts, etc, etc.  Then I got started working on some actual coding.  
+
+I am starting out writing some specs for the project I am working on.  I have used "rspec":http://rspec.rubyforge.org/ for a few different projects but I hadn't had a chance to play with the new syntax yet.  It is basically exactly the same as when I used it just with different method names, but it really makes a huge difference in the style it forces you into.  
+
+With the old method, how to describe the specs was always a bit weird to me.  For example:
+
+{% highlight ruby %}
+context "a new group with no users" do
+   specify "group should not be valid" do
+        #...
+   end
+end
+{% endhighlight %}
+
+With the new style everything seems to flow naturally.  For example:
+
+{% highlight ruby %}
+describe Group, " with no users" do
+   it "should not be valid" do
+        @group.should_not be_valid
+   end
+end
+{% endhighlight %}
+
+Interesting is that I often feel like I write the same thing twice, once in english, then again in the "DSL":http://en.wikipedia.org/wiki/Domain-specific_programming_language of rspec.  But if you read them out loud, they are basically the same:
+
+{% highlight ruby %}
+it "should have four elements" 
+@thing.should have(4).elements
+{% endhighlight %}
+
+I also often find that I can guess the right syntax which is *HUGE* for rapid development times.  I really like rspec, and I think I am really going to like working for Planet Argon.  
+
+P.S. "Backspace":http://www.backspace.bz/ has awesome sandwiches.    

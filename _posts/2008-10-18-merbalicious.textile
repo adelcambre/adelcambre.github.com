@@ -1,0 +1,16 @@
+---
+layout: post
+title: Merbalicious
+---
+
+!http://farm4.static.flickr.com/3010/2945201668_6f206cae92.jpg?v=0!:http://flickr.com/photos/adelcambre/2945201668/in/set-72157607970474681/
+
+Last weekend was the first ever Merb Camp (and first ever merb conference to my knowledge).  The conference itself was absolutely amazing. The talks were fantastic across the board and the venue was amazing. Those guys really bumped up the bar a bit on conference organizing.  (A barbeque 10 miles away from the conference venue, with shuttles to get us there, and the food was just coming off the grill as we arrived, amazing.)  
+
+The state of merb is at a fairly good place right now.  Things have changed a lot in the past few weeks and months, but things are finally beginning to stabilize.  The API is frozen now that rc1 is out and things are just in bug fix mode.  Merb 1.0 rc2 should be out today with support for windows with the merb stack.  The last thing that needed to be fixed was a version of do-sqlite3 that compiled on windows.  
+
+It was a blast to get to work with all of the merb guys at the Merb sprint.  I was working on getting the inline documentation a bit more polished and solidifying what belongs in the public and plugin apis.  It was a fairly challenging problem, there are apis that you would have every reason to think are private but one of the plugins in more uses it.  
+
+The venue for both the sprint and the conference were amazing.  The sprint was down on the beach in beautiful La Jolla.  
+
+!http://farm4.static.flickr.com/3296/2932375566_86c6c0077f.jpg!:http://flickr.com/photos/adelcambre/2932375566/

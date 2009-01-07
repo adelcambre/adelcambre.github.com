@@ -38,13 +38,9 @@ a {
   color: #00a;
 }
 
-a:hover {
-  color: black;
-}
+a:link,  a:visited { color: #000; }
+a:hover, a:active  { color: #fff; background: #000; }
 
-a:visited {
-  color: #a0a;
-}
 
 table {
   font-size: inherit;
@@ -87,18 +83,28 @@ ul.posts {
 }
 
 .title {
-  color: #a00;
-  font-weight: bold;
-  margin-bottom: 2em;
+  color: #000;
+  margin-bottom: 20px;
+	border-bottom: 1px solid #999;
+	line-height: 45px;
+	font-size: 48pt;
+	font-family: Garamond, "Times New Roman", serif;
+}
+
+.subtitle {
+	font-size: 9pt;
+	position: relative;
+	left: 130px;
+	top: -20px;
 }
 
   .site .title a {
-    color: #a00;
     text-decoration: none;
   }
   
   .site .title a:hover {
     color: black;
+		background-color: white;
   }
 
   .site .title a.extra {
@@ -141,6 +147,7 @@ ul.posts {
       .site .footer .rss img {
         border: 0;
       }
+
     
 /*****************************************************************************/
 /*
@@ -148,8 +155,20 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-#post {
-  
+#post p {
+  margin: 10px;
+}
+
+/* Post title */
+#post > h1:first-child {
+	font-size: 24pt;
+	font-family: "Helvetica Neue";
+	font-variant: small-caps;
+	font-weight: 100;
+}
+
+#post > h1:first-child a {
+	text-decoration: none;
 }
 
   /* standard */

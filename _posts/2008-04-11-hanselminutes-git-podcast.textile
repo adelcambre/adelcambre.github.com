@@ -1,0 +1,43 @@
+---
+layout: post
+title: Hanselminutes Git Podcast
+---
+
+A few of us from "PLANET ARGON":http://planetargon.com/ were interviewed for a "podcast":http://www.hanselminutes.com/default.aspx?showID=126 by "Scott Hanselman":http://www.hanselman.com/ earlier this week primarily talking about our use of Git and git-svn.  Planet Argon is currently in the process of moving from Subversion to git.  Most of us are using git-svn internally with our central subversion server for now but we are going to be moving to using Git for our central server soon.  In preparing for the podcast I thought a lot about what makes git special. I came up with three major reasons. 
+
+h1.  Branching and Merging
+
+This is my personal number one favorite feature about git.  In subversion branching is very easy.  It does a shallow copy and is very fast.  But merging things back together is a major pain in the butt.  You have to keep track of the revision that you branched from just so you can merge them back together.  
+
+In git all you do is create a new branch, work as long or as much as you like, then git merge new_branch to merge the changes back into master.  There is no need to keep track of  revision numbers and the default git merge strategy tends to only have conflicts where there are two changes to the same file in the same place.
+
+h1. Everybody can have their own repo
+
+With subversion or other centralized tools, there is only one main server for each project.  I can check the code out on my computer, but I am still tied to that central server for updates.  I need to have commit rights to that server to publish my changes.  With git, rather than just checking out the code from your repository I can just clone it to my own repo.  I will probably have at least one clone on my development computer. But I can also have a complete clone on a server of my own.  
+
+I can then make all the radical changes I want and people can pull from me instead of you to get the new stuff.  I can then send you an email requesting you to pull from my repo merging my new changes back into the "main" repository.  
+
+This is a feature that "github":http://github.com really capitalizes on.  The built in fork and pull request features are truly top notch. 
+
+h1.  Offline Commits
+
+As your clone is a full repository just like any other, you can commit directly to it without the need for any central server.  This is probably the feature of distributed version control system's you have heard of the most.  The proverbial commit from an airplane.  Although it gets repeated a lot, this is actually a very cool feature, and not just for the offline commit.  
+
+This all gives you the ability to make commits you might not otherwise make to a central server so as to not clutter up the revision history with your playing around.  You can feel free to try things out, commit them, back up to a previous commit, without the central server ever knowing about it.  
+
+Thanks again to Scott Hanselman for this opportunity to chat with him. I really enjoyed doing the interview.  I think we talked about some good stuff and I am looking forward to listening to it when it gets posted. 
+
+*Update:* The podcast has been posted.  Take a "listen":http://www.hanselminutes.com/default.aspx?showID=126 .
+
+Also, I just forked "rails":http://github.com/rails/rails on github!
+
+@git clone git://github.com/rails/rails.git@
+
+You can read my other articles about git here:
+* "Git SVN":http://andy.delcambre.com/2008/3/4/git-svn-workflow
+* "git reset":http://andy.delcambre.com/2008/3/12/git-reset-in-depth
+* git rebase
+* git log
+* git stash
+* git merge
+* git mergetool

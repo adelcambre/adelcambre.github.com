@@ -1,0 +1,25 @@
+---
+layout: post
+title: Disabling nfsv4 on Ubuntu
+---
+
+We had an issue where the nfs server on linux didn't play nice with solaris client because the solaris clients will try nfsv4 first then fall back to nfsv3.  The problem is that by default most linux nfs servers do both v3 and v4 so it answers the v4 request witha  failure, so the solaris clients never fall back. Unfortunately it isn't well documented how to disable v4. 
+
+The basic solution is to pass --no-nfs-version 4 to rpc.nfsd when it starts.  The normal place to add this is /etc/default/nfs-kernel-server, but there is no NFSDARGS variable in there.  A quick look in the init script shows that the contents of $RPCNFSDCOUNT are passed directly to rpc.nfsd.
+
+<pre>
+start-stop-daemon --start --oknodo --quiet \
+   --nicelevel $RPCNFSDPRIORITY \
+   --exec $PREFIX/sbin/rpc.nfsd -- $RPCNFSDCOUNT
+</pre>
+
+So it was simply a case of tacking --no-nfs-version 4 onto RPCNFSDCOUNT in /etc/default/nfs-kernel-server giving me:
+
+<pre>
+# Number of servers to start up
+RPCNFSDCOUNT='8 --no-nfs-version 4'
+</pre>
+
+(Eight is the default number of servers)
+
+I hope this helps if you need to do the same.  

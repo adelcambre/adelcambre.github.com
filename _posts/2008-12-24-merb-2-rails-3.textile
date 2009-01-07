@@ -1,0 +1,18 @@
+---
+layout: post
+title: Merb 2 == Rails 3
+---
+
+!<http://rubyonrails.org/images/pages/merb/yehuda.jpg!
+
+Unless you have been under a rock all day,  I am sure you have heard about the Rails and Merb merger announced earlier.  I am very excited about this turn of events.  It seemed so incredibly improbable merely one week ago.  The more I think about it and hear the plans, the more optimistic I become about the future of Ruby on the web.  
+
+You can read the details of the merger at "Yehuda":http://yehudakatz.com and "David's":http://weblog.rubyonrails.org/2008/12/23/merb-gets-merged-into-rails-3 blogs.  There is also coverage from "Carl Lerche":http://splendificent.com/2008/12/the-merb-rails-merger-announcement-an-inside-opinion/, "Tom Mornini":http://mornini.wordpress.com/2008/12/23/rails-2x-merb-1x-rails-30/, "Matt Aimonetti":http://merbist.com/2008/12/23/rails-and-merb-merge/, and "Ezra Zygmuntowicz":http://brainspl.at/articles/2008/12/23/merb-is-rails.  I am not going to speak to the technical aspects of the merger as David and Yehuda have outlined those plans thoroughly.  I am more concerned about the community facets of the merger.  
+
+!>http://loudthinking.com/images/headshot150.jpg!
+
+Assuming the technical issues can be worked out with the merging of ideas and code bases, this is absolutely fantastic news for the ruby community at large.  There is huge mind share that rails has already garnered in the past four years.  Merb has been gaining ground, but unfortunately primarily from the existing rails community.  It has grown since it's inception two years ago and has experimented with many new concepts and ideas that will find an excellent new home in Rails.  There will be some stumbling blocks along the way.  Almost assuredly more so for merb apps than rails apps, due primarily to the sheer volume of rails code out there, especially in comparison to merb.  There will be migration paths from both frameworks to Rails 3.0 that should be fairly painless. 
+
+My biggest concern for the moment is people who are currently working on Merb applications.  I know that the Merb core team has committed to making point releases leading up to the transition to Rails 3.0,  but until we get there I worry that major forward progress on merb will stop (understandably so).  This just leaves those of us working with current merb apps with a bit of an unmaintained framework for the moment.  This will end up with everybody in a better place, but will leave things a bit painful for the moment. 
+
+Overall I am very excited for the coming months of ruby web development.  It is so cool to see the communities come back together like this and truly allow us to get the best of both worlds.  I am looking forward to what the new core team can come up with.
