@@ -224,3 +224,11 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+#images img {
+	float: left;
+	margin: 15px;
+}
+
+#images a:hover, #images a:active { background-color: #fff; color: #000; }
+

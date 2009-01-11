@@ -13,6 +13,22 @@
 
   <!-- Homepage CSS -->
   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+  <script src="http://www.google.com/jsapi"></script>
+  <script>
+    // Load jQuery
+    google.load("jquery", "1");
+  </script>
+  <script src="/images/jquery.flickr-1.0-min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    // on page load complete, fire off a jQuery json-p query
+    // against Google web search
+    google.setOnLoadCallback(function() {
+      $("#images").flickr({ api_key: '99e2933d41aef92ab18371f4685ddaa7',
+                            type: 'search',
+                            user_id: '29233693@N00',
+                            per_page: '5'})
+    });
+  </script>
 </head>
 <body>
 
