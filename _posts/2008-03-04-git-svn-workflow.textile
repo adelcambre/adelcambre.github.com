@@ -88,7 +88,7 @@ git svn dcommit
 
 That's it!  That is the basic circle between an initial checkout back to a commit.  I will be going through the different git commands in the next few weeks to go over how they work in more detail.  Here are the things I am planning on covering:
 
-* "git reset":http://andy.delcambre.com/2008/3/12/git-reset-in-depth
+* "git reset":/2008/03/12/git-reset-in-depth.html
 * git rebase
 * git log
 * git stash

@@ -34,8 +34,8 @@ Also, I just forked "rails":http://github.com/rails/rails on github!
 @git clone git://github.com/rails/rails.git@
 
 You can read my other articles about git here:
-* "Git SVN":http://andy.delcambre.com/2008/3/4/git-svn-workflow
-* "git reset":http://andy.delcambre.com/2008/3/12/git-reset-in-depth
+* "Git SVN":/2008/3/4/git-svn-workflow.html
+* "git reset":/2008/3/12/git-reset-in-depth.html
 * git rebase
 * git log
 * git stash

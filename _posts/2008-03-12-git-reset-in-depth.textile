@@ -109,7 +109,7 @@ The place that I really use @git reset@ a fair amount is with remote branches.  
 I really started liking this command once I realized what was happening.  You really need to be aware of the nature of git's directed graph to take full advantage of @git reset@, but once you do, you are really able to exploit git quite a lot further. 
 
 This is part of a series on git, other articles in the series are:
-* "Git SVN":http://andy.delcambre.com/2008/3/4/git-svn-workflow
+* "Git SVN":/2008/03/04/git-svn-workflow.html
 * git rebase
 * git log
 * git stash
