@@ -41,7 +41,7 @@ DTSTART:20091119T182500Z
 DTEND:20091119T190500Z
 UID:5705994.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Remember when you started using Ruby? That time when it was fun to tinker with things, write little amusing programs, explore new things. A time that you didn't worry about the quality of garbage collectors or what lambda syntax is the best. Back when coding was more fun and less serious? Why not get back to those days? Sure, you can make a pretty good living writing Ruby for monies. But, your inner child, your inner artist, is waiting for you to come out and play, to come out and create. See what fun other people are up to, discover the fun you might be missing out on, and learn how to have fun even when you do have to write production code for monies.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -54,7 +54,7 @@ DTSTART:20091119T182500Z
 DTEND:20091119T190500Z
 UID:4918291.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: GitHub had a problem. I needed a fast, robust way for one Ruby process to make low-latency calls to another. I looked at Thrift and Protocol Buffers, but those solutions were too complex and not flexible enough to hang with Ruby. To solve the problem, I created BERT, BERT-RPC, and Ernie. BERT (Binary ERlang Term) is a new serialization format based on Erlang's external term format. It supports rich data types such as atoms (symbols), heterogenous lists, tuples, and binary data. BERT-RPC is a simple, dynamic RPC protocol built on top of BERT providing both synchronous and asynchronous requests, caching directives, streaming, and even callbacks. Ernie is an Erlang/Ruby hybrid server that makes it dead simple to write your RPC functions in Ruby. Together, these technologies power GitHub's new federated architecture and allow us to independently and horizontally scale both frontend and backend layers.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -67,7 +67,7 @@ DTSTART:20091119T191500Z
 DTEND:20091119T200000Z
 UID:499583.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: An introduction and and review of best practices for dealing with binary data in Ruby. This will include examples with binary memcached, Open Sound Control, AMQP, and others.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -80,7 +80,7 @@ DTSTART:20091119T191500Z
 DTEND:20091119T200000Z
 UID:4930882.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Many Rubyists seek beauty in code, but thanks to projects like Processing and Context-Free, code can create beauty. In this session we’ll take a look at generative art and give you the tools to begin experimenting.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -93,7 +93,7 @@ DTSTART:20091119T200000Z
 DTEND:20091119T211500Z
 UID:3343341.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: We begin with six pairs of contestants. "Ordinary" conference attendees are each paired with a "star" (a well-known agile programming guru) for the week. During the competition, each pair performs a prepared routine of 4-6 minutes in length based on an assigned category. Pairs can use any programming language and tools that they like, as long as they stay within the guidelines of the category. All of the pairing action shows on the big screen, and microphones capture the intense dialogue between the pairs.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -106,7 +106,7 @@ DTSTART:20091119T211500Z
 DTEND:20091119T220000Z
 UID:6226848.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby originated in Japan, the country which is world-leading in robotic research. It suggests itself to put the two together and to start using Ruby as a language to program robots. However at the moment the performance of available Ruby interpreters is not sufficient. It is hard to achieve performance comparable to compiled C++-code since manipulation of Ruby-integers and Ruby-arrays requires frequent bounds-checking. It can be shown that universal bounds-check elimination is actually impossible. This talk presents HornetsEye which is a Ruby-extension facilitating the development of real-time machine vision algorithms for future robotic applications. HornetsEye offers I/O facilities to capture and display videos. HornetsEye also can be integrated into GUI-applications developed with Qt4-QtRuby. Furthermore there is a set of Ruby classes which provides the means to compose native datatypes and specify operations on them. The libJIT just-in-time compiler is used to achieve real-time performance. The project was inspired by NArray and ruby-libjit. Slides will be made available at http://www.wedesoft.demon.co.uk/rubyconf09.html.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -119,7 +119,7 @@ DTSTART:20091119T211500Z
 DTEND:20091119T220000Z
 UID:3511371.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby's success in several domains is arguably due to domain-specific languages (DSLs) that generate code: we have tools that generate HTML, CSS, and Javascript, and so we get to write web applications in ruby; ditto SQL and database applications. There are some less well known examples in the simulation and embedded real-time domains, with native code generation. Two other domains are ripe for the same treatment: animation and network programming. My talk focuses on these four cases, two existing and two hypothetical.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -132,7 +132,7 @@ DTSTART:20091119T221000Z
 DTEND:20091119T225500Z
 UID:2081112.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Four short presentations by active members of the Japanese Ruby community. * "Making Ruby a Bazaar Project" by Yugui (Yuki Sonoda) From the Ruby core team, to English-speaking Rubyists. * "Jpmobile" by SHIDARA Yohji (darashi) From Japanese mobile-web world, to Latin-1 developers. * "Asakusa.rb Rocks!" by Akira MatsudaFrom the most active Ruby community in Japan, to world Rubyists. * "So, You Should Attend RubyKaigi2010 :)" by KAKUTANI Shintaro From RubyKaigi, to RubyConf. == Making Ruby a Bazaar Project Ruby needs your help. There are many issues. But there are too few developers. 92% of Ruby's development in this 3 years were done by only 10 developers. 73% were done by only 5 developers. Ruby seems to be a cathedral project rather than a bazaar project. There must be many reasons for this situation. I think a large reason is the language barrier between English-speaking Ruby world and Japanese-speaking Ruby world. So I will talk about how to solve this problem. All of the top 10 committers speak Japanese and live in Japan. So they discuss in Japanese. Some of the most important decisions are done in these discussions. But this means that most of Rubyists, who do not speak Japanese, can not understand the discussions. For non-Japanese speakers, there has been no way to understand the most important issues in the development of Ruby. I want to share the current issues of Ruby. I also want to request help from Rubyists who don't speak Japanese. * Building test beds * maintaining www.ruby-lang.org * more testing before release * more discussion on language features * prototyping next generation features And then, Ruby must be a bazaar project as Rails is, so that Ruby is sustainable. == Jpmobile We Japanese have many characters. Not only characters, but also encodings. Even in the modern age, UTF-8 is not the only option. For example, we have to use Shift_JIS on Windows systems, EUC-JP on UNIX, ISO-2022-JP for email exchange. We still need to wander around these encodings to complete daily programming tasks. That is why m17n is so important for Ruby, and for us. The advance of mobile-phones makes the situation more complicated. Emoji (emoticons) were implemented on mobile-phones by mapping on unused area. We have three major mobile-phone carriers in Japan. These carriers implemented different Emoji character sets and encodings. They, of course, are not compatible. Even worse these assignments are partially overlapped each other. Remember, we already have several major encodings for regular Japanese characters. Introducing Emoji on them multiply the combinations. In addition, I have to say that no `official' machine-readable specifications are available (google is trying to solve this problem). It should sound stupid but is the real situation of Japanese mobile web development. In the session, I want to share this complicated situation and how we have been fighting with the issue of encodings, as a Rubyist from Japan. == Asakusa.rb Rocks! This talk is about Asakusa.rb - a Ruby users' group in Japan. Though Japan is the mother country of Ruby, is seems that Ruby in the US is more widely-accepted than that in Japan. Particularly, Ruby web app development is much more progressed in the Western world, probably because of the big wave called "Ruby on Rails". All the new technologies, exciting news and worth reading books about Ruby web development are coming from the western Ruby world into Japan. But on the other hand, as for Ruby language, the situation is quite the opposite. Ruby is mainly developed in Japan, by several Japanese developers, so lots of Ruby treasures such as useful assets and important news are buried in Japan without be translated into English. I suppose, Ruby looks like a huge black box to you, isn't it? The problem here, is that Ruby is made in Japan, Rails is made in Western, and both have their own communities separately. So, we founded a Ruby users' group named Asakusa.rb. One of our mission is to be a hub between those two separated Ruby communities and join them into one "World Ruby community". I'm going to talk what we've done and our future plans. == So, You Should Attend RubyKaigi2010 :) RubyKaigi is the de-facto authoritative Ruby conference in Japan, held annually since 2006 and hosting a mix of Japanese and English talks. We're trying to blur the language barriers more. Thanks to Chad Fowler,we've encouraged us by your message. I'm the one of main organizer of RubyKaigi, so I'll show you RubyKaigi is a nice and safe conference fornon-Japanese rubyists through RubyKaigi2009 as an example. RubyKaigi2009 was held in 17-19 July 2009 in Tokyo. We made 16/58 talks and 5/22 lightning talks in english[*3]. The total number of RubyKaigi2009 attendees was ~700 including ~50 non-Japanese speakers/attendees from almost all over the world. In Japan,there are nice rubyists to meet and nice places to visit. We're looking for more non-Japanese speakers/attendees in RubyKaigi 2010!
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -145,7 +145,7 @@ DTSTART:20091119T221000Z
 DTEND:20091119T225500Z
 UID:7968584.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: As web developers, we live in an arranged marriage with JavaScript. What is a Rubyist to do? Use JavaScript as a compile target? Abstract it away on the server? With JRuby, we can embrace the shared language of the web in a compelling way, building reusable libraries that work across the client-server boundary. By bridging Ruby to JavaScript using Rhino, we gain shared databases, including their indexing strategies. We gain remote model discovery and shared client/server validation. We gain a shared query language. And because it is JavaScript, we gain the entire web community as collaborators.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -158,7 +158,7 @@ DTSTART:20091119T230500Z
 DTEND:20091119T235000Z
 UID:5313024.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: FFI is a way to create cross engine rubygems. Wrap a library once, and use it from MRI, JRuby, Rubinious, and mingw32 Ruby. This talk will discuss FFI why you want to use it. We will build an FFI extension, and a traditional extension, comparing the implementations and cover the benefits and detriments of each.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -171,7 +171,7 @@ DTSTART:20091119T230500Z
 DTEND:20091119T235000Z
 UID:9545272.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Two years ago, at RubyConf, we saw a blinking LED... last year, we drank cocktails mixed by the Barduino... In 2009, you will see Ruby take to the skies! Using Ruby Arduino Development, and a bunch of cool hardware and open source software, we will demonstrate "Rogue 3", a Lighter Than Air (LTA) autonomous flying vehicle. We will also share some of the techniques and resources you need to get started with homebuilt UAV's
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -184,7 +184,7 @@ DTSTART:20091120T002000Z
 DTEND:20091120T010500Z
 UID:4642172.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: MongoDB is an open-source, high-performance, schema-free, document-oriented database. The goal of the MongoDB project is to bridge the functionality gap between a key/value store and a traditional RDBMS. There is a native Ruby driver for MongoDB, as well as several open-source projects providing additional support for using MongoDB from Ruby. This talk will introduce MongoDB and discuss some of the reasons why MongoDB might be the right choice for your project. It will include an overview of MongoDB as well as detailed examples using MongoDB in Ruby. Questions and discussion will be encouraged throughout the presentation.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -197,7 +197,7 @@ DTSTART:20091120T002000Z
 DTEND:20091120T010500Z
 UID:3893560.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby is a great first programming language for kids of all ages. But how do you introduce it in a way that piques their curiosity and encourages them to dig deeper? It's not as hard as you think. I'll demonstrate how I used Ruby, Shoes, short iterations, and frequent deployment to get a big group of high school kids excited about programming, even though I hadn't done much teaching before. I'll also show how to adjust for younger kids, all the way down to elementary school age. You'll leave with ideas you can use in a classroom, an after-school club, or with the kids in your life at home.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -210,7 +210,7 @@ DTSTART:20091120T011500Z
 DTEND:20091120T020000Z
 UID:3230446.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: One of the darkest sides of Ruby is the parser. I tried to fix the notation or the syntax of ruby so as to understand the MRI implementation more deeply. This talk will introduce how input codes are parsed, and how to cook the parser for a programmer who has never looked the ruby implementation's source codes. Do you imagine the world like the following Ruby code works? def MyClass#hi(x) {:aaa => ++x, 'bbb => ++x } end f({|x| x * 2}, {|x, y| x + y}, {1 :-) 2i}) It would be better you fetch and build Ruby1.9.2dev in advance.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -223,7 +223,7 @@ DTSTART:20091120T011500Z
 DTEND:20091120T020000Z
 UID:4900948.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby's testing culture goes way back, and has been a force for making many Ruby projects a showcase for solid, maintainable code. That said, within a business an exclusive focus on TDD and BDD can easily miss the bigger picture and drive optimizations in the development process that negatively impact the business as a whole. Part business talk and part technical talk, we'll discuss what "Experiment Driven Development" is, why you should be doing it from day 1 (probably even before writing tests!), and what cool Ruby tools you can leverage to make it happen.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -249,7 +249,7 @@ DTSTART:20091120T173000Z
 DTEND:20091120T181500Z
 UID:2592971.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: There’s a storm brewing. You may have felt the increased pressure when you last typed “CREATE DATABASE latest_project;” into your MySQL console - or you might have been seeding the clouds in an attempt to start the storm sooner. The name of that storm? NoSQL. In this session, we’ll explore the NoSQL movement: the general alternatives to relational databases (key-value stores, document-oriented databases, and graph databases) and some of the domains in which they provide the best fit. We’ll also look at ways to resolve the tension between relational databases and the alternatives, with examples of hybrid applications.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -262,7 +262,7 @@ DTSTART:20091120T173000Z
 DTEND:20091120T181500Z
 UID:8376141.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Because of its dynamic nature, Ruby is very difficult to optimize; as a result it is a slow language. It has long been an unrequited dream of mine to write a fully static Ruby compiler, which converts Ruby into efficient, directly executable machine code. I had given it up as infeasible, but some recent advances in the state of the art have filled in the last missing pieces and put a practical Ruby compiler within reach. I will be talking about Ocelot, my implementation of these ideas. Ocelot is an experimental (meaning, unfinished) implementation of Ruby, but my goal is that it will be able to handle all (well, almost all) of the hard parts of implementing Ruby while providing improved performance.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -275,7 +275,7 @@ DTSTART:20091120T182500Z
 DTEND:20091120T190500Z
 UID:4416097.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Jemini is a game development library using JRuby (don't worry, no Java code needed!). Jemini features a behavior system that allows for complex expressions to be re-used across games, and the most common game mechanisms are already taken care of. See Jemini embedded in a GUI app, web page, and run on many platforms.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -288,7 +288,7 @@ DTSTART:20091120T182500Z
 DTEND:20091120T190500Z
 UID:780352.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ask any new Ruby developer what their favorite thing about Ruby is, and they'll inevitably mention the smooth experience of Rubygems. Initially created as a quick weekend hack, it quickly took the Ruby community by storm, and there are now more than 10,000 Ruby libraries packaged up as Rubygems. This solution has worked for half a dozen years, and the basic approach will remain sound for years to come. As Ruby matures and the project comes under increasing usage, some wrinkles have appeared, both in using a large number of gems in a project such as a Rails application, and in how Ruby developers have historically created their packages. In this talk, Yehuda will cover how the Gem bundler solves many of the problems involved in using Rubygems in large projects, including some of the details of how it works. The bundler builds on the power of Rubygems to provide a standardized way for Ruby developers to include packages in their projects. It provides robust dependency resolution capabilities, which has been the missing link for seamless gem use. It also ensures a consistent development, staging and production environment, eliminating the effect of the system gem repository on those environments. He will also demonstrate the practices gem authors can use when they create packages to mitigate some of these problems. Finally, he will make some long-term proposals for the Rubygems system that will shore it up as it comes under increasing stress by the number of developers using it and the number of packages in use.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -301,7 +301,7 @@ DTSTART:20091120T191500Z
 DTEND:20091120T200000Z
 UID:5510840.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby performance has become a focus of the Ruby community in recent years. Both new implementations of Ruby (i.e. YARV, JRuby, IronRuby, MacRuby, and Rubinius) and "best-practices" have been introduced to address performance issues. We take a complementary approach in our work, applying source-to-source translation to partially evaluate Ruby. Partial evaluation pre-computes the parts of a program known before run-time to avoid performing these calculations at run-time. We introduce our partial evaluator and two Ruby-embedded DSLs we developed to aid our implementation---RubyWrite and ShadowBoxing. The partial evaluator takes a Ruby source program as input and outputs an equivalent Ruby program with statically known values pre-computed. RubyWrite enables us to easily represent and manipulate the abstract syntax tree (AST). ShadowBoxing lets us write succinct rules to "unparse" the AST back to Ruby source. Our approach sits neatly between making programmers entirely responsible for performance and faster Ruby implementations, providing a tool that can be used on any implementation to help improve performance.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -314,7 +314,7 @@ DTSTART:20091120T191500Z
 DTEND:20091120T200000Z
 UID:6990263.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Not satisfied by RubyGem hosts? Say hello to Gemcutter and prepare for awesome gem hosting. Learn about this open source effort to improve gem hosting and watch a live demo of the site.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -340,7 +340,7 @@ DTSTART:20091120T211500Z
 DTEND:20091120T220000Z
 UID:9613807.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: JRuby has become popular for deploying Rails and other web frameworks, but it is also helping to expand the Ruby world beyond Rails. JRuby is everywhere, bringing Ruby to new users and new domains every day. In this session, we'll show many other examples of JRuby, from mobile devices to games to desktop apps to cloud computing to new Java integration features.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -366,7 +366,7 @@ DTSTART:20091120T221000Z
 DTEND:20091120T225500Z
 UID:7024955.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: MacRuby is an optimized implementation of the Ruby language aimed at Mac OS development. In this session you will hear about the current state of the project as well as future plans.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -379,7 +379,7 @@ DTSTART:20091120T221000Z
 DTEND:20091120T225500Z
 UID:6447470.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby apps can now be deployed to Google App Engine. We'll explore our latest development tools, and review the appengine APIs for Ruby. Developers also want to understand how to build apps using the App Engine datastore, our highly scalable persistence layer, so we'll discuss working with the datastore using the DataMapper API. We'll also introduce Duby, a new language with Ruby-inspired syntax, that compiles directly to Java bytecode. We'll show you why Duby is especially powerful for App Engine development.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -392,7 +392,7 @@ DTSTART:20091120T230500Z
 DTEND:20091120T235000Z
 UID:9473991.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Rubinius is now in it's 3rd year and everyone asks "how come it's not done?" The answer is not as complicated as you might imagine, and you'll see how Rubinius is actually surpassing other implementation it terms of performance today.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -405,7 +405,7 @@ DTSTART:20091120T230500Z
 DTEND:20091120T235000Z
 UID:1457249.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: The SOLID principles are a set of design principles that improve an Object Oriented design. They are: * Single Responsibility Principle * Open/Closed Princip * Liskov Substitution Principle * Interface Segregation Principle * Dependency Inversion Principle The SOLID principles were written with a statically typed language (such as C++ or Java) in mind. What do the SOLID principles mean to a dynamic/flexible language like Ruby? This talk will focus on how SOLID and Ruby interact, how to create well designed Ruby software, and to suggest possibilities for new design principles for dynamic languages.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -418,7 +418,7 @@ DTSTART:20091121T002000Z
 DTEND:20091121T010500Z
 UID:4125589.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: IronRuby – a fast open-source Ruby implementation – is designed to script the world. IronRuby runs on most major operating systems, as well as most modern browsers as a replacement for JavaScript (as browsers are becoming platforms in their own right). It can also reach across the programming language barrier to use code written in other languages (static or dynamic), and allows those other languages to embed IronRuby. This talk will give the 40-minute-tour of IronRuby; where it runs, what it can be used for, and how it works: 5min: Overview of IronRuby and .NET ecosystem 10min: IronRuby is cross-platform: running on Linux 10min: IronRuby is cross-language: Python and C# 5min: How cross-language works 10min: Status, ecosystem, compatibility, performance This talk will show IronRuby performing on Mac OS, Linux, and Windows, inside and outside the browser, using a collection of technologies like Mono, Silverlight, and Moonlight, and discusses the possibilities this flexibility offers. Being a good cross-language citizen as well, IronRuby will show its friendliness with Python and C# code, both as consumers and being embedded in other languages. The new version of C# has special support for doing dynamic-method dispatch at the syntax-level, which will show how seamless static and dynamic languages can interact. All the language-interop is made possible by the Dynamic Language Runtime. For the language implementers, this talk will also dive into the language design of how IronRuby integrates with the world, and how the language implementation makes IronRuby fast. Last but not least, we’ll discuss the status and roadmap of the project, including an overview of the performance and compatibility compared with other Ruby implementations, as well as the every-growing ecosystem.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -431,7 +431,7 @@ DTSTART:20091121T002000Z
 DTEND:20091121T010500Z
 UID:6278426.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Every Rubyist knows Python sucks. It doesn't have blocks, whitespace matters, and Django is just a cheap Rails knock off. But you can't argue with the language's popularity. Maybe there's something to it? This talk is about Python and what we, as Rubyists, can learn from it. (Hint: a lot)
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -444,7 +444,7 @@ DTSTART:20091121T011500Z
 DTEND:20091121T020000Z
 UID:924905.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: This presentation will introduce improvement of memory management on Ruby 1.9.2. Not a GC algorithm, but a memory management. I want to give you some practical evaluation results. Also, I will introduce some Ruby virtual machine hack topics for 1.9.2 or later.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -457,7 +457,7 @@ DTSTART:20091121T011500Z
 DTEND:20091121T020000Z
 UID:210351.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby's rapid development, flexibility with data, and power for creating domain specific languages make it a compelling choice for music composition applications. But despite the creativity of the community and the possibility of the language, Ruby lacks the library support of other languages such as Python, Lisp, Java, C/C++, and the digital signal processing (DSP) domain specificity of languages like Chuck and SuperCollider. This talk will explore strategies that use Ruby's strengths for computer music, avoid its weaknesses in hard real time music domains (speed and clock jitter), the libraries that are available, and patterns from successful music applications in various languages. Along the way we will explore examples of generative music algorithms (Mozart, Xenakis, Cope, Alphacore, Archaeopteryx, etc), controllers, laptop orchestras and ensembles (SLOrk/PLOrk, The Hub), live coding with irb, and more. At the end you will walk away inspired and informed to develop your own awesome music projects and libraries. About the presenter: Noah Thorp is an enthusiastic community organizer, music composer, and software developer. His love of music, community and technology led him to found music think-tank and record label Listen Labs in 1998 and the Bay Area Computer Music Technology Group (BArCMuT.org) in 2007 and host over 30 computer music events at Berkeley CNMAT, Stanford CCRMA, Mills, Ex'pression, Dolby, Digidesign, Maker Faire, etc. His recent music project Rabbit's Rum was nominated for a 2009 Independent Music Award and recently composed the music for the Capacitor dance troupe's Urban Canopy show, performed at TED 2009 and the California Academy of Sciences. As part of Listen Labs, Noah performed late 90s laptop (and desktop) music performances and authored algorithms to convert EEG and geophysics density data to music. Noah is the VP of Engineering for Ashbury Music Hall ( ashburymusichall.com ), an online music and music technology teaching platform startup where he leads an agile team and writes software primarily in Ruby.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -483,7 +483,7 @@ DTSTART:20091121T182500Z
 DTEND:20091121T190500Z
 UID:8981018.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Ruby was once my favorite language for production code. Now Clojure is. Come find out why. You might not agree, but simply knowing a little Clojure will make your Ruby code better. 
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -496,7 +496,7 @@ DTSTART:20091121T182500Z
 DTEND:20091121T190500Z
 UID:8030834.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Are you a developer who would love to get into video games but get scared when he hears "OpenGL" or "rendering engines"? Or Maybe, you never considered writing a video game because you have heard Ruby was slow and you are not ready to give up on your favorite programming language. This talk is for you then. Together, we will build a very simple game using Ruby and the development tools offered by Apple. At the end of the presentation you will be ready to get started on your own project. 
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -509,7 +509,7 @@ DTSTART:20091121T191500Z
 DTEND:20091121T200000Z
 UID:5550428.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Want to get into mobile app development with your Ruby skills? Or maybe you are already switching between Java, ObjectiveC and/or C++ to target applications to various popular mobile devices and you are thinking that there must be a better way... In this talk, Sarah Allen will share her experience developing mobile applications using Ruby. She will highlight several emerging toolkits and provide an overview of today's mobile platforms and marketplace. Then she will dive into how to code a native app using the Rhomobile framework, as well as demonstrating using eRB to integrate UI components that make a web application look and feel like a native app.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -522,7 +522,7 @@ DTSTART:20091121T191500Z
 DTEND:20091121T200000Z
 UID:6632194.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Data writes are often the bottleneck for application scalability. What if you moved all of your data writes over to an asynchronous style? How could other services and programs in your application take advantage of those broadcast writes to build optimized structures designed for high performance synchronous reads? Asynchronous writes enable you to build additional event driven intelligence seamlessly into your application. We'll cover in gory detail how to route all of your data writes through a queue while performing all your reads synchronously through services.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -548,7 +548,7 @@ DTSTART:20091121T211500Z
 DTEND:20091121T220000Z
 UID:3753630.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: We won't just look at how to use projects that bridge Ruby and functional languages, we'll walk through the lower-level code that allows the inter-language communication to happen. We'll explore different approaches to language interoperability ranging from accessing libraries through universal protocols to embedding foreign syntax in a host source file. We'll also discuss techniques for ensuring that your polyglot applications won't read like bad translations and behave in unexpected ways.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -561,7 +561,7 @@ DTSTART:20091121T211500Z
 DTEND:20091121T220000Z
 UID:1387487.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: I've worked at Object Mentor, ThoughtWorks, and Obtiva so I come from a test first background. However there are times and situations that call for less automated testing instead of more. Now that TDD and BDD have become near dogma in some circles, it's time to have an honest discussion about finding the appropriate level of testing for your team/project/code. Too much testing can lead to developer backlash, gridlock, morale problems, and poor velocity. On the other hand, lack of testing can lead to bad design, gridlock, morale problems, and poor velocity. How can you find the sweet spot that keeps the code fit while still getting your project out the door?
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -574,7 +574,7 @@ DTSTART:20091121T221000Z
 DTEND:20091121T225500Z
 UID:9380545.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: While developing JRuby, I have often created new toy languages to experiment with features or explore optimizations. Now my little Ruby mutants have started to develop their own lives. Duby is a static-typed language with Ruby syntax that compiles to raw JVM bytecode and performs as well as Java. UNNAMED is a dynamic language with syntax identical to Ruby, but using all JVM types and OpenJDK7's fast dynamic call support. Both are feeding into research to improve JRuby. And both are built on BiteScript, a DSL for emitting JVM bytecode. I'll show all three.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -587,7 +587,7 @@ DTSTART:20091121T221000Z
 DTEND:20091121T225500Z
 UID:685919.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: In the Ruby community, we have a tendency to sneer at things that are too "enterprisey." That tendency has been explained in some uncharitable ways, but mostly by claiming that we "just don't understand the enterprise." But I think there's a different explanation. At Relevance, we've been doing some work with a large, enterprisey customer (Verizon Business). We've worked together to try to understand what enterprises can learn from smaller, more agile companies like Relevance. That work has led us to understand some of the real disadvantages of the kinds of big, pricey tools you usually find in large enterprises,and we've learned why lightweight tools like Ruby are good fits not just for small, agile teams, but for large enterprises as well.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
@@ -600,7 +600,7 @@ DTSTART:20091121T230500Z
 DTEND:20091121T235000Z
 UID:717489.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: This is a presentation of the Worst Ideas Ever. But this is not just another "worst practices" presentation with random code samples. This presentation is about ideas that were specially engineered to be bad. This is not about bad coding practices, but about projects that never should have seen the light of day. "Bad" is not the correct term for the software being presented. "Abominations" is a more accurate description. "Software perversions" might be even more accurate. Do not try to understand why this software exists, but lay awake in bed at night afraid because it does. Jekyll and Hyde have nothing on this.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 1
 SEQUENCE:4
@@ -613,12 +613,12 @@ DTSTART:20091121T230500Z
 DTEND:20091121T235000Z
 UID:4460487.rubyconf.2009
 CREATED:20091014T002330Z
-DESCRIPTION:
+DESCRIPTION: Earlier this year Gregg released a series of screencasts showing that Rails indeed ships with many of the tools that you need to scale your application. Since then more Rails applications have gone into production, additional techniques have been developed for optimizing performance, and more open source libraries have been published. In this talk he will first give a quick introduction for those just getting their feet wet with optimizing Rails applications. However, the majority of the talk will be spent looking at the most useful techniques for optimizations and some of the new libraries that have been released to make it that much easier.
 LAST-MODIFIED:20091112T181649Z
 LOCATION:Room 2
 SEQUENCE:4
 STATUS:CONFIRMED
-SUMMARY:TBD
+SUMMARY: On The Edge of Rails Performance (Gregg Pollack)
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR
