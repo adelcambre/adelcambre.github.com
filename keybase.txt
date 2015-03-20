@@ -1,0 +1,79 @@
+https://keybase.io/adelcambre
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://andy.delcambre.com
+  * I am adelcambre (https://keybase.io/adelcambre) on keybase.
+  * I have a public key with fingerprint 1BE4 CF33 AB8C F585 CF98  9A63 52A4 7A77 8EDE D0B4
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.7"
+        },
+        "key": {
+            "fingerprint": "1be4cf33ab8cf585cf989a6352a47a778eded0b4",
+            "host": "keybase.io",
+            "key_id": "52A47A778EDED0B4",
+            "uid": "67f9066a0c42d34c3bf0805a01d14a00",
+            "username": "adelcambre"
+        },
+        "merkle_root": {
+            "ctime": 1426872705,
+            "hash": "2c302470d2f05515e370565ba23b20befc327b7f3d5e10b3dd4b4ddc1c8cdad14facff46b92f63e301d6d9fde25a9ae51ec30bb53b43623977b5bcbdf842d74f",
+            "seqno": 180772
+        },
+        "service": {
+            "hostname": "andy.delcambre.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1426872718,
+    "expire_in": 157680000,
+    "prev": "240a8ce9efa3d092193ab7257f43fff62d26d229f641a9377bf936617ce6fd60",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owFdUmlMVFcUHrayFDpWU3QQDEwrotLJ2xegFi2CsUiKlLhFh/fevXd4OMyDN8Oq
+lMXpgi3FFgVsTUlrAtRomhYMCS40mAqxkCppi6msdlGUpMlgKRF0+h7BbvfXvfd8
+5zvfd845FuZn8PVZpfw6eb/2h06fb6dEQ3bonoZDZlEBZeaEQ2bJLkOHS785hHxo
+TjAfhGWi4IQWWYl2KABa8pzRS5h4czFUnbLi0FCYhbWw5op4Ha4nI9lhg2qBKutc
+ZlyElIRIUhA5CdEcLSGe4wWGpAmBYgWW5SCAABMpjTJXcbr+U9W8yGmVgfZLE5sp
+drOG35qyNQXbouOLFgMMi3iMYQRMoghAUhIpIozDaAHDAU4JGKYDnVBdsiQAaJeE
+fFGFuuJ8qB60Q6uqKIu2JZesg3CKYDiWYDFa0yQ4c7U0QiIxgmIxQCCMpnEaklqU
+oUWBIEUCEyGSSIIVWUQCGuKYSAJAiRQAEi5xEhA0IUiQEKIYkScQQ0JSE8cAHgFI
+0AIvQBqHWgFRpEmRIhmC5FlWpEVJBIjTTLEU0kw4YaFD0cRxGMsSFfpbLZYlqOvW
+G/fEnwOUWf72aJGUfC21QFVciqTYtXiuy1WQoFt3lRWc1xNKoGhdorKKsgNow/v3
+dHEN+r+24Fy8GZYWyCq0yjqCZhkO045eBxbrzaIwgZMgD5FAAowncF6bPkvQLKJI
+hBBDAIIBBMEjhsIFntS8Ip5kGJyVIIMAg/1jltJ0CjaN0inbHIKrSJ9arW+kv8HH
+1/BUgK++voaQ4GVPdtoaZfSW/+5Ji3StDXjwXt6gcW0TP/vusSxfh+2nnQHlod6Z
+meDqyyUpTuZRz5HBL1/zj0tP3fFFdt3YyruHv5/K7agYX7k3Nqh3Lxu47NJ52+m6
+hoyu7VtOPTvad+Ve3kfukZSxkqejnvd/5URxRkfF63VtI8aasyvmDLH73gSJlaHb
+mrIvmYa/7mfaJ5PDvPb5XnfaYesnpOp+YcKZbUsdnUwpbRlK7xs1TaTeog94Jx6b
+1Oeuz+07c3vjq60Nw0ZLszdoZ2FaI13fuHu2oBocCFkxfyHIFp1z0+9BixKeaY2r
+fHw2ur95aHun01Q7UH6xfdedt53upIiNnybaYjc0F22a/rnq9Pof93t+CVcG/ujp
+3jDSU5P+zlverI7WE5en1WFywW/NqjvuZ2DI3Zhv5l5afbM0LzC8+JawOinS80G9
+7Ub4uNlPNp4JvIq1xZzkznlz6vLaCoOzjn8+8du86ULyTOv7azIbIpuqpyqvPXyZ
+33E/fGzAdIVWTi3v/i4ttsqY2P5x4vHkij1xbY0dEZ20B2faU7t23Y6JX7AGkOkZ
+05l5XZ5en+EX7UfDjl4M66eXX9sG60/mJO+eyV4/+KjfnAP69rsXHob3Rs9dPxfR
+j3VN3uveFFwVt0BWGWprWOuNlqlR9s+knmSjqTSz8+pnQW/MrhsfIzyGD9vT1/WK
+Q8VHXEXIHvXVXw==
+=B/da
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/adelcambre
